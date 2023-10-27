@@ -11,7 +11,12 @@ def convertObjToQueryStr(obj: dict) -> str:
     query_string = []
 
     for key, value in obj.items():
-        value_as_string = str(value) if isinstance(value, (str, int, float, bool)) else value
+        value_as_string = ""
+        if isinstance(value, (int, float, bool)):
+            value_as_string = str(value)
+        elif value is None:
+            value_as_string = "Null"
+        else: value_as_string = value
         query_string.append(f"{key}={value_as_string}")
 
     return "&".join(query_string)
@@ -35,7 +40,6 @@ def createSignatureFromObj(data, key):
     """
     sorted_data_by_key = sortObjDataByKey(data)
     data_query_str = convertObjToQueryStr(sorted_data_by_key)
-
     # Sử dụng hashlib.sha256 thay thế cho crypto.createHmac
     data_to_signature =  hmac.new(key.encode("utf-8"), msg=data_query_str.encode("utf-8"), digestmod=hashlib.sha256).hexdigest()
 
