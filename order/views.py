@@ -37,6 +37,7 @@ class OrderCreate(APIView):
                 "x-api-key": os.environ.get("PAYOS_API_KEY"),
             }
             response = requests.post(url, json=bodyRequest, headers=headers)
+            print(response.json())
             if response.status_code == 200:
                 paymentLinkRes = response.json()
                 if(paymentLinkRes["code"] == "00"):
@@ -65,6 +66,9 @@ class OrderCreate(APIView):
                             "checkoutUrl": paymentLinkRes["data"]["checkoutUrl"]
                         }
                     })
+                else: 
+                    raise Exception("HTTP error!")
+
             else:
                 raise Exception("HTTP error!")
 
