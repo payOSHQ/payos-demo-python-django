@@ -9,14 +9,15 @@ import requests
 
 def demo(request):
     return render(request, "demo.html",)
+
 def result(request):
     return render(request, "result.html",)
+
+
 class Checkout(APIView):
     def post(self, request):
         try:
             body = request.data
-            print(request.data)
-
             bodyRequest = {
                 "orderCode": random.randint(1000,99999),
                 "amount": int(body["price"]),
