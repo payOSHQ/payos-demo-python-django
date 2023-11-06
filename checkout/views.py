@@ -7,28 +7,29 @@ from config.utils import createSignatureOfPaymentRequest, createSignatureFromObj
 import os
 import requests
 
-def demo(request):
-    return render(request, "demo.html",)
+def index(request):
+    return render(request, "index.html",)
 
-def result(request):
-    return render(request, "result.html",)
+def success(request):
+    return render(request, "success.html",)
 
+def cancel(request):
+    return render(request, "cancel.html",)
 
 class Checkout(APIView):
     def post(self, request):
         try:
-            body = request.data
             bodyRequest = {
                 "orderCode": random.randint(1000,99999),
-                "amount": int(body["price"]),
-                "description": body["description"],
+                "amount": 1000,
+                "description": "Thanh toán đơn hàng",
                 "items": [{
-                    "name": body["productName"],
+                    "name": "Mì tôm hảo hảo ly",
                     "quantity": 1,
-                    "price": int(body["price"])
+                    "price": 1000
                 }],
-                "cancelUrl": body["cancelUrl"],
-                "returnUrl": body["returnUrl"]
+                "cancelUrl": "http://localhost:8000/cancel",
+                "returnUrl": "http://localhost:8000/success"
             }
             key = os.environ.get("PAYOS_CHECKSUM_KEY")
             bodyToSignature = createSignatureOfPaymentRequest(bodyRequest, key)

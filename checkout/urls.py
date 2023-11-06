@@ -1,8 +1,9 @@
 
 from django.urls import path, include
-from checkout.views import demo, Checkout, result
+from checkout.views import index, Checkout, success, cancel
 urlpatterns = [
-    path('', demo),
-    path('checkout', Checkout.as_view()),
-    path('result', result)
+    path('', index),
+    path('create-payment-link', Checkout.as_view()),
+    path('success', success),
+    path('cancel', cancel)
 ]
