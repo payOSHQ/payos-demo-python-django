@@ -6,5 +6,5 @@ from payment.views import *
 # 
 
 urlpatterns = [
-    path('payos_transfer_handler/', Payment.as_view())
+    path('payos_transfer_handler', Payment.as_view())
 ]
