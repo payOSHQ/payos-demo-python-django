@@ -46,7 +46,7 @@ class OrderManage(APIView):
             return Response(
                 {
                     "error": -1,
-                    "message": "Product does not exist",
+                    "message": "Ok",
                     "data": None
                 }
             )
@@ -76,6 +76,13 @@ class Webhook(APIView):
         try:
             webhookUrl = request.data["webhook_url"]
             payOS.confirmWebhook(webhookUrl)
+            return Response(
+                {
+                    "error": 0,
+                    "message": "Ok",
+                    "data": None
+                }
+            )
         except Exception as e:
             print(e)
             return Response(
