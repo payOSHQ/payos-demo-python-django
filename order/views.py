@@ -46,7 +46,7 @@ class OrderManage(APIView):
             return Response(
                 {
                     "error": -1,
-                    "message": "Ok",
+                    "message": "Fail",
                     "data": None
                 }
             )
