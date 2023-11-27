@@ -18,14 +18,6 @@ pip install -r requirements.txt
 ```
 
 
-SQL_ENGINE=django.db.backends.mysql
-SQL_DATABASE=
-SQL_USER=
-SQL_PASSWORD=
-SQL_HOST=
-SQL_PORT=3306
-
-
 PAYOS_CREATE_PAYMENT_LINK_URL=https://api-merchant.payos.vn/v2/payment-requests
 
 PAYOS_CLIENT_ID=

@@ -6,4 +6,5 @@ from order.views import *
 urlpatterns = [
     path('create', OrderCreate.as_view()),
     path('<int:pk>', OrderManage.as_view()),
+    path('confirm-webhook', Webhook.as_view())
 ]
