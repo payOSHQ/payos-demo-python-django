@@ -10,7 +10,8 @@ class Payment(APIView):
             data = request.data
             # print(request.data)
             data = payOS.verifyPaymentWebhookData(data)
-            if data["description"] in ['Ma giao dich thu nghiem', "VQRIO123"]:
+
+            if data.description in ['Ma giao dich thu nghiem', "VQRIO123"]:
                 return Response({
                         "error": 0,
                         "message": "Ok",

@@ -22,8 +22,8 @@ class Checkout(APIView):
                 items=[item], cancelUrl= "http://localhost:8000/cancel", returnUrl= "http://localhost:8000/success")
 
             payosCreateResponse = payOS.createPaymentLink(paymentData)
-            return redirect(payosCreateResponse["checkoutUrl"])
+            return redirect(payosCreateResponse.checkoutUrl)
 
         except Exception as e:
             print(e)
-            return render(request, "demo.html",)
+            return render(request, "index.html",)
