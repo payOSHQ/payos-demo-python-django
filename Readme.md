@@ -17,9 +17,6 @@ pip install -r requirements.txt
 ### Step 3: Add environment variables in the .env file from the .env.example file
 ```
 
-
-PAYOS_CREATE_PAYMENT_LINK_URL=https://api-merchant.payos.vn/v2/payment-requests
-
 PAYOS_CLIENT_ID=
 PAYOS_API_KEY=
 PAYOS_CHECKSUM_KEY=

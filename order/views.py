@@ -4,6 +4,7 @@ import json
 import random
 from config.utils import payOS
 from payos_lib_python import PaymentData, ItemData
+import json
 
 # Create your views here.
 class OrderCreate(APIView):
@@ -19,7 +20,7 @@ class OrderCreate(APIView):
             return Response({
                 "error": 0,
                 "message": "success",
-                "data": payosCreateResponse
+                "data": payosCreateResponse.to_json()
             })
         except Exception as e:
             print(e)
@@ -38,7 +39,7 @@ class OrderManage(APIView):
                 {
                     "error": 0,
                     "message": "Ok",
-                    "data": data
+                    "data": data.to_json()
                 }
             )
         except Exception as e:
@@ -58,7 +59,7 @@ class OrderManage(APIView):
                 {
                     "error": 0,
                     "message": "Ok",
-                    "data": order
+                    "data": order.to_json()
                 }
             )
         except Exception as e:
