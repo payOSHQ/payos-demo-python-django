@@ -3,7 +3,7 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 import random
 from config.utils import payOS
-from payos_lib_python import PaymentData, ItemData
+from payos import PaymentData, ItemData
 
 def index(request):
     return render(request, "index.html",)

@@ -3,7 +3,7 @@ from rest_framework.response import Response
 import json
 import random
 from config.utils import payOS
-from payos_lib_python import PaymentData, ItemData
+from payos import PaymentData, ItemData
 import json
 
 # Create your views here.
